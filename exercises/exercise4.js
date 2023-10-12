@@ -13,7 +13,7 @@ async function countSiteLinks(site) {
     const result = await fetch(site);
     const html = await result.text();
 
-    return html.length;
+    return (html.match(/<a\ /g) || []).length;
 }
 
 // TODO: Optimize this function
@@ -38,4 +38,8 @@ async function readNetiSites() {
     console.log(`Total links count: ${total}`);
 }
 
-readNetiSites();
+(async () => {
+    console.time('Timer');
+    await readNetiSites();
+    console.timeEnd('Timer');
+})();

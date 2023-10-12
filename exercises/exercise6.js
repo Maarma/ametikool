@@ -15,13 +15,13 @@ async function work() {
 }
 async function waitAndReturn(time, value){
     return new Promise((resolve) => setTimeout(
-        
-    ))
+        () => resolve(value), time)
+    );
 };
 
 // TODO: Improve this function
 async function doWork() {    
-    return await Promise.race([work(), timeout()]);
+    return await Promise.race([work(), waitAndReturn()]);
 }
 
 (async () => {

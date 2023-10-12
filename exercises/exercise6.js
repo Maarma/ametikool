@@ -13,10 +13,15 @@ async function work() {
 
     return 'realresult';
 }
+async function waitAndReturn(time, value){
+    return new Promise((resolve) => setTimeout(
+        
+    ))
+};
 
 // TODO: Improve this function
-async function doWork() {
-   return await work();
+async function doWork() {    
+    return await Promise.race([work(), timeout()]);
 }
 
 (async () => {

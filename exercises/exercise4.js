@@ -5,6 +5,8 @@
  * Kasuta selleks Promise.all funktsiooni.
  */
 
+const { resolve } = require("path");
+
 async function countSiteLinks(site) {
     console.log(`Fetching ${site}...`);
     // adding a delay to mimic slow connection
@@ -28,12 +30,21 @@ async function readNetiSites() {
     ];
 
     let total = 0;
+    const promises = [];
+
 
     for (const site of sites) {
-        const count = await countSiteLinks(site);
-        console.log(`Links count: ${count}`);
-        total += count;
+        const count = promises.push(countSiteLinks(site));
+        //console.log(`Links count: ${count}`);
+        //total += count;
     }
+
+    const allCounts = await Promise.all(promises);
+    console.log(allCounts);
+    
+    for (let i = 0; i < allCounts.length; i++ ) {
+        total += allCounts[i];
+      }
 
     console.log(`Total links count: ${total}`);
 }

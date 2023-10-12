@@ -8,10 +8,11 @@
 // TODO: Optimize this function
 function calculateSum(fileName) {
     let sum = 0;
+    const fs = require('fs');
+    const data = fs.readFileSync(fileName, 'utf8');
+    lines = data.split('\n');
+
     for (i = 0; i < 1000; i++) {
-        const fs = require('fs');
-        const data = fs.readFileSync(fileName, 'utf8');
-        lines = data.split('\n');
         sum += Number(lines[i]);
     }
     return sum;

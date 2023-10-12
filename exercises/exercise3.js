@@ -9,15 +9,16 @@
 function printModifiedFileContent(fileName) {
     const fs = require('fs');
     const data = fs.readFileSync(fileName, 'utf8');
-    lines = data.split('\n');
-    for (const line of lines) {
-        words = line.split(' ');
-        for (word of words) {
-            process.stdout.write('JavaScript' == word ? 'Python' : word);
-            process.stdout.write(' ');
-        }
-        console.log(''); // Newline
-    }
+    //lines = data.split('\n');
+    //for (const line of lines) {
+    const text=data.replaceAll("JavaScript", "Python");
+    //words = data.split(' ');
+        //for (word of words) {
+           // process.stdout.write('JavaScript' == word ? 'Python' : word);
+           // process.stdout.write(' ');
+       // }
+        console.log(text); // Newline
+    //}
 }
 
 console.time('Timer');

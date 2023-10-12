@@ -11,11 +11,11 @@ function printNumbersDivisibleBy(divisibleByNr, printCount) {
     let count = 0;
     let tryThisNumber = 0;
     while (count < printCount) {
-        if (0 == tryThisNumber % divisibleByNr) {
-            console.log(tryThisNumber);
-            count++;
-        }
-        tryThisNumber++;
+        //if (0 == tryThisNumber % divisibleByNr) {
+        //    console.log(tryThisNumber);
+        //    count++;
+        //}
+        tryThisNumber+=divisibleByNr;
     }
 }
 

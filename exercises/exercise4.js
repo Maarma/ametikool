@@ -1,5 +1,5 @@
 /*
- * See skript teeb 5 päringut erinevatele neti.ee lehtedele ja loeb kokku neis esinevate linkide arvu.
+ * See skript teeb 6 päringut erinevatele neti.ee lehtedele ja loeb kokku neis esinevate linkide arvu.
  *
  * ÜLESANNE: optimeeri skripti sedasi et päringuid tehtaks samaaegselt.
  * Kasuta selleks Promise.all funktsiooni.
